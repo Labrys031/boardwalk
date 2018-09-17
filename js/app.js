@@ -1,6 +1,6 @@
 // Enemies our player must avoid
-let allDogs = [];
-let player = new Player(200, 380, 50);
+let allEnemies = [];
+var player = new Player(200, 380, 50);
 
 var Enemy = function(x, y, speed) {
         this.x = x;
@@ -14,7 +14,7 @@ var Enemy = function(x, y, speed) {
   let enemyY = 65 + 80 * i;
   let enemyX = Math.floor(Math.random() * 30);
   let enemySpeed = 50 + Math.floor(Math.random() * 150);
-  allDogs.push(new Enemy(enemyX, enemyY, enemySpeed));
+  allEnemies.push(new Enemy(enemyX, enemyY, enemySpeed));
 }
 
 Enemy.prototype.getRandomDog = function () {
