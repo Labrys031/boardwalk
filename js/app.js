@@ -1,26 +1,11 @@
 // Enemies our player must avoid
-let allEnemies = [];
-var player = new Player(200, 380, 50);
-
-var Enemy = function(x, y, speed) {
+let Enemy = function(x, y, speed) {
         this.x = x;
         this.y = y;
         this.speed = speed;
-        this.dog = ['images/dog.png', 'images/dog2.png'];
-        this.sprite;
-        this.getRandomDog();
+        this.sprite = 'images/enemy-bug.png';
 };
-  for (let i = 0; i < 3; i++){
-  let enemyY = 65 + 80 * i;
-  let enemyX = Math.floor(Math.random() * 30);
-  let enemySpeed = 50 + Math.floor(Math.random() * 150);
-  allEnemies.push(new Enemy(enemyX, enemyY, enemySpeed));
-}
 
-Enemy.prototype.getRandomDog = function () {
-  this.randomDog = Math.floor(Math.random() * this.dog.length);
-  this.sprite = this.dog[this.randomDog];
-}
 // Update the enemy's position, required method for game
 // Parameter: dt, a time delta between ticks
 Enemy.prototype.update = function(dt) {
@@ -49,11 +34,11 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-var Player = function (x, y, speed){
+let Player = function (x, y, speed){
     this.x = x;
     this.y = y;
     this.speed = speed;
-    this.sprite = 'images/cat.png';
+    this.sprite = 'images/char-horn-girl.png';
 };
 
 
@@ -96,7 +81,14 @@ Player.prototype.render = function() {
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
-
+let allEnemies = [];
+for (let i = 0; i < 3; i++){
+  let enemyY = 65 + 80 * i;
+  let enemyX = Math.floor(Math.random() * 30);
+  let enemySpeed = 50 + Math.floor(Math.random() * 150);
+  allEnemies.push(new Enemy(enemyX, enemyY, enemySpeed));
+}
+let player = new Player(200, 380, 50);
 
 
 // This listens for key presses and sends the keys to your
